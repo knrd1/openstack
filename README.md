@@ -1,6 +1,30 @@
-# openstack
 # OpenStack CLI notes:
+    openstack server create --flavor m1.small --image "Ubuntu 16.04 LTS" --key-name konrad --security-group default --nic net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b blog
 
-openstack server create --flavor m1.small --image "Ubuntu 16.04 LTS" --key-name konrad --security-group default --nic net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b blog
+# To do: Cannot associate floating IP via CLi, works fine in GUI
 
-# to do: Cannot associate floating IP via CLi, works fine in GUI
+    root@test:~# openstack server list
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    | ID                                   | Name | Status | Networks                       | Image            | Flavor   |
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    | 45641123-618d-4e84-8826-0ca8dcecdea0 | blog | ACTIVE | Default=10.0.0.3               | Ubuntu 16.04 LTS | m1.small |
+    | 1d9c0006-0412-4185-9888-c56aafb7f492 | test | ACTIVE | Default=10.0.0.4, 87.254.4.129 | Ubuntu 16.04 LTS | m1.small |
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    root@test:~# openstack floating ip list
+         +--------------------------------------+---------------------+------------------+--------------------------------------+-------------------------------------+----------------------------------+
+     | ID                                   | Floating IP Address | Fixed IP Address | Port                                 | Floating Network                     | Project                          |
+    +--------------------------------------+---------------------+------------------+--------------------------------------+--------------------------------------+----------------------------------+
+    | 2533f3d6-2f11-49dc-b47b-eac57ce15d5c | 87.254.4.131        | None             | None                                 | 78c0dc1f-a6ae-4073-9764-db02c2970db3 | 32fb1de794e24ae6a6ace6059707d66a |
+    | 6c9c64a4-f6e6-477b-84c8-79a6ca07451a | 87.254.4.129        | 10.0.0.4         | b39b8d37-8f47-4266-84a2-49f5956cab1d | 78c0dc1f-a6ae-4073-9764-db02c2970db3 | 32fb1de794e24ae6a6ace6059707d66a |
+    | f67b0f52-df17-4410-aa85-0c574f2f6a3b | 87.254.4.128        | None             | None                                 | 78c0dc1f-a6ae-4073-9764-db02c2970db3 | 32fb1de794e24ae6a6ace6059707d66a |
+    +--------------------------------------+---------------------+------------------+--------------------------------------+--------------------------------------+----------------------------------+
+    root@test:~# openstack server add floating ip blog 87.254.4.131
+    add_floating_ip
+    root@test:~# openstack server list
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    | ID                                   | Name | Status | Networks                       | Image            | Flavor   |
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    | 45641123-618d-4e84-8826-0ca8dcecdea0 | blog | ACTIVE | Default=10.0.0.3               | Ubuntu 16.04 LTS | m1.small |
+    | 1d9c0006-0412-4185-9888-c56aafb7f492 | test | ACTIVE | Default=10.0.0.4, 87.254.4.129 | Ubuntu 16.04 LTS | m1.small |
+    +--------------------------------------+------+--------+--------------------------------+------------------+----------+
+    root@test:~#
