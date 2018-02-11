@@ -1,0 +1,8 @@
+#!/bin/bash
+curl -L https://bootstrap.saltstack.com -o /tmp/bootstrap_salt.sh
+sh /tmp/bootstrap_salt.sh
+systemctl stop salt-minion && systemctl disable salt-minion
+apt-get install git-all -y
+git clone https://github.com/knrd1/salt.git /srv/salt
+echo "file_client: local" >> /etc/salt/minion
+
