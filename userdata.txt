@@ -10,3 +10,4 @@ systemctl stop salt-minion && systemctl disable salt-minion
 apt-get install git-all -y
 git clone https://github.com/knrd1/salt.git /srv/salt
 echo "file_client: local" >> /etc/salt/minion
+salt-call --local state.apply
