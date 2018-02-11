@@ -28,6 +28,6 @@ USERDATA="userdata.txt"
         "$VM"
 
    echo "Virtual Machine created"
-   echo -n "Virtual Machine created, please associate floating IP in GUI and press enter to continue."
+      echo "Virtual Machine created, please associate floating IP "87.254.4.135" in GUI and press enter to continue."
    read
 
