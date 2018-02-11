@@ -23,6 +23,6 @@ COUNT="1"
         --key-name "$KEY" \
         --security-group "$GROUP" \
         --nic "$NIC" \
-        "$1"
+        "$VM"
 
    echo "Virtual Machine created"
