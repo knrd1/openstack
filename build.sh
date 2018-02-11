@@ -30,4 +30,10 @@ USERDATA="userdata.txt"
    echo "Virtual Machine created"
       echo "Virtual Machine created, please associate floating IP "87.254.4.135" in GUI and press enter to continue."
    read
+   
+while true; do
+echo "Please wait...";
+/usr/bin/wget "http://87.254.4.135" --timeout 6 -O - 2>/dev/null | grep "Hello";
+sleep 10;
+done;
 
