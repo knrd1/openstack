@@ -16,6 +16,8 @@ KEY="konrad"
 GROUP="default"
 NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
 COUNT="1"
+USERDATA="userdata.txt"
+
    echo "Creating Virtual machine"
         openstack server create \
         --flavor "$FLAVOR" \
@@ -23,6 +25,7 @@ COUNT="1"
         --key-name "$KEY" \
         --security-group "$GROUP" \
         --nic "$NIC" \
+        --user-data "$USERDATA" \
         "$VM"
 
    echo "Virtual Machine created"
