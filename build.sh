@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to bild new VM using OpenStack CLI tools
+# Script to build new VM using OpenStack CLI tools
 # Syntax: build.sh <app> <num_servers> <server_size>
 
 if [ $# -eq 0 -o $# -gt 4 ]; then
