@@ -6,6 +6,29 @@ if [ $# -eq 0 -o $# -gt 4 ]; then
    echo "Syntax: ./build.sh <VM name> <number of servers> <server size>" 1>&2
    exit 1
 fi
+PS3="Choose option: "
+
+select menu in create leave
+
+do
+
+if [ "$menu" = "" ] ; then
+        echo "Please choose option"
+        echo " "
+        continue
+
+elif [ "$menu" = leave ] ; then
+        echo "Bye"
+        echo " "
+        break
+
+elif [ "$menu" = create ] ; then
+        read -p "Do you want ot create new virtual machine? y/n: " choice
+        echo " "
+
+        if [ "$choice" = n ] ; then
+                continue
+        elif [ "$choice" = y ] ; then
 
 source ~/Konrad-openrc.sh
 VM="$1"
@@ -31,9 +54,13 @@ USERDATA="userdata.txt"
       echo "Virtual Machine created, please associate floating IP "87.254.4.135" in GUI and press enter to continue."
    read
    
+        continue
+        fi
+fi
+
 while true; do
 echo "Please wait...";
 /usr/bin/wget "http://87.254.4.135" --timeout 6 -O - 2>/dev/null | grep "Hello";
 sleep 10;
-done;
-
+done
+done
