@@ -48,7 +48,11 @@ select menu in create leave; do
         --user-data "$USERDATA" \
         "$VM"
         echo " "
-        read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: " IP
+        while ! ping -c1 "$IP" &>/dev/null; do
+          read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: " IP
+        done
+        echo " "
+        echo "Floating IP assigned"
         echo " "
      fi
   fi
