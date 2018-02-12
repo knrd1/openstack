@@ -1,6 +1,6 @@
 # Working script:
 
-    root@test:~# ./build.sh hello_world 1 m1.small
+    root@test:~# ./build.sh hello_world m1.small
     1) create
     2) leave
     Choose option: 1
