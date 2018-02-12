@@ -1,11 +1,26 @@
 #!/bin/bash
 # Script to build new VM using OpenStack CLI tools
-# Syntax: build.sh <server name> <number of servers> <server size>
-# Version 0.01 BETA
+# Syntax: build.sh <server name> <server size>
+# Version 0.03 BETA
 
-if [ $# -eq 0 -o $# -gt 3 ]; then
+CREDS="Konrad-openrc.sh"
+USERDATA="userdata.txt"
+VM="$1"
+FLAVOR="$2"
+IMAGE="Ubuntu 16.04 LTS"
+KEY="konrad"
+GROUP="default"
+NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
+source Konrad-openrc.sh
+
+if [ ! -e "$USERDATA" -a ! -e "CREDS" ] ; then
+  echo "Missing files! Make sure that "Konrad-openrc.sh" and "userdata.txt" exist in this directory"
+  exit 1
+fi
+
+if [ $# -eq 0 -o $# -gt 2 ]; then
   echo " "
-  echo "Syntax: ./build.sh <server name> <number of servers> <server size>" 1>&2
+  echo "Syntax: ./build.sh <server name> <server size>" 1>&2
   echo " "
   exit 1
 fi
@@ -27,15 +42,6 @@ select menu in create leave; do
       if [ "$choice" = n -o "$choice" = "" ] ; then
          continue
       elif [ "$choice" = y ] ; then
-        source ~/Konrad-openrc.sh
-        VM="$1"
-        COUNT="$2"
-        FLAVOR="$3"
-        IMAGE="Ubuntu 16.04 LTS"
-        KEY="konrad"
-        GROUP="default"
-        NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
-        USERDATA="userdata.txt"
         echo " "
         echo "Creating Virtual machine..."
         echo " "
