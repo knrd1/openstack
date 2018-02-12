@@ -4,7 +4,7 @@
 # Version 0.03 BETA
 
 CREDS="Konrad-openrc.sh"
-USERDATA="userdata.txt"
+USERDATA="userdata.sh"
 VM="$1"
 FLAVOR="$2"
 IMAGE="Ubuntu 16.04 LTS"
