@@ -2,7 +2,7 @@
 
     root@test:~# ./build.sh hello_world 1 m1.small
     1) create
-    2)  leave
+    2) leave
     Choose option: 1
     Do you want to create new virtual machine? y/n: y
 
