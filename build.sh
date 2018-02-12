@@ -3,6 +3,7 @@
 # Syntax: build.sh <server name> <number of servers> <server size>
 
 if [ $# -eq 0 -o $# -gt 3 ]; then
+  echo " "
   echo "Syntax: ./build.sh <server name> <number of servers> <server size>" 1>&2
   echo " "
   exit 1
@@ -41,17 +42,21 @@ select menu in create leave; do
         echo " "
 
         echo " "
-        echo "Virtual Machine has been created, please associate floating IP in GUI and press ENTER to continue."
-        read
+        read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue." IP
         echo " "
 
      fi
   fi
 
-  while true; do
-  echo "Please wait...";
-  /usr/bin/wget "http://87.254.4.135" --timeout 6 -O - 2>/dev/null | grep "Hello";
-  sleep 10;
+  WEBSITE="http://87.254.4.135"
+  KEYWORD="Hello"
+  while ! curl -s --head --request GET http://"$IP" | grep "200 OK" > /dev/null; do
+    echo "Please wait..."
+    sleep 10;
   done
+
+  echo " "
+  echo "Website is online: http://$IP"
+  echo " "
 
 done
