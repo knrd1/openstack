@@ -35,7 +35,6 @@ select menu in create leave; do
         GROUP="default"
         NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
         USERDATA="userdata.txt"
-        echo " "
         echo "Creating Virtual machine..."
         echo " "
         openstack server create \
