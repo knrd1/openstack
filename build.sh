@@ -26,7 +26,6 @@ select menu in create leave; do
       if [ "$choice" = n -o "$choice" = "" ] ; then
          continue
       elif [ "$choice" = y ] ; then
-
         source ~/Konrad-openrc.sh
         VM="$1"
         COUNT="$2"
@@ -36,27 +35,30 @@ select menu in create leave; do
         GROUP="default"
         NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
         USERDATA="userdata.txt"
-
         echo " "
         echo "Creating Virtual machine..."
         echo " "
-
+        openstack server create \
+        --flavor "$FLAVOR" \
+        --image  "$IMAGE" \
+        --key-name "$KEY" \
+        --security-group "$GROUP" \
+        --nic "$NIC" \
+        --user-data "$USERDATA" \
+        "$VM"
         echo " "
-        read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue." IP
+        read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: " IP
         echo " "
-
      fi
   fi
 
-  WEBSITE="http://87.254.4.135"
-  KEYWORD="Hello"
   while ! curl -s --head --request GET http://"$IP" | grep "200 OK" > /dev/null; do
-    echo "Please wait..."
+    echo "Configuring web applications, please wait..."
     sleep 10;
   done
 
   echo " "
-  echo "Website is online: http://$IP"
+  echo "Web application is online: http://$IP"
   echo " "
 
 done
