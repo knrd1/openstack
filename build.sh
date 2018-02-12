@@ -1,6 +1,7 @@
 #!/bin/bash
-# Script to bild new VM using OpenStack CLI tools
+# Script to build new VM using OpenStack CLI tools
 # Syntax: build.sh <server name> <number of servers> <server size>
+# Version 0.01 BETA
 
 if [ $# -eq 0 -o $# -gt 3 ]; then
   echo " "
@@ -35,6 +36,7 @@ select menu in create leave; do
         GROUP="default"
         NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
         USERDATA="userdata.txt"
+        echo " "
         echo "Creating Virtual machine..."
         echo " "
         openstack server create \
@@ -51,7 +53,7 @@ select menu in create leave; do
      fi
   fi
 
-  while ! curl -s --head --request GET http://"$IP" | grep "200 OK" > /dev/null; do
+  while ! curl -m 3 -s --head --request GET http://"$IP" | grep "200 OK" > /dev/null; do
     echo "Configuring web applications, please wait..."
     sleep 10;
   done
