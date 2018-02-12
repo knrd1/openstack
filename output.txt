@@ -20,12 +20,12 @@ Creating Virtual machine...
 | accessIPv4                  |                                                         |
 | accessIPv6                  |                                                         |
 | addresses                   |                                                         |
-| adminPass                   | TgnDYW4h6eBy                                            |
+| adminPass                   | Cwu4PgWxSueH                                            |
 | config_drive                |                                                         |
-| created                     | 2018-02-12T01:21:38Z                                    |
+| created                     | 2018-02-12T01:59:34Z                                    |
 | flavor                      | m1.small (2)                                            |
 | hostId                      |                                                         |
-| id                          | 716190b3-b407-491e-9bd4-c8911393bc60                    |
+| id                          | b4d7afb3-ae92-4d81-8ac2-86f09f3fe1f9                    |
 | image                       | Ubuntu 16.04 LTS (2489bc76-937e-43ea-9480-87b098dc9286) |
 | key_name                    | konrad                                                  |
 | name                        | hello_world                                             |
@@ -34,12 +34,16 @@ Creating Virtual machine...
 | properties                  |                                                         |
 | security_groups             | name='f4556561-d023-4ff9-ae9e-88878db8a35b'             |
 | status                      | BUILD                                                   |
-| updated                     | 2018-02-12T01:21:38Z                                    |
+| updated                     | 2018-02-12T01:59:34Z                                    |
 | user_id                     | d2a1654aabea4294a617d3f3f6092853                        |
 | volumes_attached            |                                                         |
 +-----------------------------+---------------------------------------------------------+
 
-Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: 87.254.4.128
+Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue:
+Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: asdasd123
+Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: 87.254.4.135
+
+Floating IP assigned
 
 Configuring web applications, please wait...
 Configuring web applications, please wait...
@@ -70,11 +74,8 @@ Configuring web applications, please wait...
 Configuring web applications, please wait...
 Configuring web applications, please wait...
 Configuring web applications, please wait...
-Configuring web applications, please wait...
-Configuring web applications, please wait...
-Configuring web applications, please wait...
 
-Web application is online: http://87.254.4.128
+Web application is online: http://87.254.4.135
 
 Choose option:
 1) create
