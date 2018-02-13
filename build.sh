@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script to build new VM using OpenStack CLI tools
 # Syntax: build.sh <server name> <server size>
+# Server size options: m1.tiny m1small m1.medium m1.large m1.xlarge
 # Version 0.03 BETA
 
 CREDS="Konrad-openrc.sh"
