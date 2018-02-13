@@ -1,14 +1,14 @@
 # Working script:
 
-    root@test:~# ./build.sh hello_world m1.small
+    root@openstackcli:~/openstack# ./build.sh hello_world m1.medium
     1) create
     2) leave
     Choose option: 1
     Do you want to create new virtual machine? y/n: y
-
-
+ 
+ 
     Creating Virtual machine...
-
+ 
     +-----------------------------+---------------------------------------------------------+
     | Field                       | Value                                                   |
     +-----------------------------+---------------------------------------------------------+
@@ -22,12 +22,12 @@
     | accessIPv4                  |                                                         |
     | accessIPv6                  |                                                         |
     | addresses                   |                                                         |
-    | adminPass                   | Cwu4PgWxSueH                                            |
+    | adminPass                   | XXXXXXXXXXXX                                            |
     | config_drive                |                                                         |
-    | created                     | 2018-02-12T01:59:34Z                                    |
-    | flavor                      | m1.small (2)                                            |
+    | created                     | 2018-02-13T02:56:12Z                                    |
+    | flavor                      | m1.medium (3)                                           |
     | hostId                      |                                                         |
-    | id                          | b4d7afb3-ae92-4d81-8ac2-86f09f3fe1f9                    |
+    | id                          | 3df53036-a35d-4919-888f-2139dbb6e9e0                    |
     | image                       | Ubuntu 16.04 LTS (2489bc76-937e-43ea-9480-87b098dc9286) |
     | key_name                    | konrad                                                  |
     | name                        | hello_world                                             |
@@ -36,17 +36,18 @@
     | properties                  |                                                         |
     | security_groups             | name='f4556561-d023-4ff9-ae9e-88878db8a35b'             |
     | status                      | BUILD                                                   |
-    | updated                     | 2018-02-12T01:59:34Z                                    |
+    | updated                     | 2018-02-13T02:56:12Z                                    |
     | user_id                     | d2a1654aabea4294a617d3f3f6092853                        |
     | volumes_attached            |                                                         |
     +-----------------------------+---------------------------------------------------------+
-
-    Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue:
-    Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: asdasd123
-    Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: 87.254.4.135
-
+ 
+    Please associate floating IP via GUI and then paste IP here and press ENTER to continue: asdasd
+    Please associate floating IP via GUI and then paste IP here and press ENTER to continue: 213123
+    Please associate floating IP via GUI and then paste IP here and press ENTER to continue: 87.254.4.129
+    Please associate floating IP via GUI and then paste IP here and press ENTER to continue: 87.254.4.129
+ 
     Floating IP assigned
-
+ 
     Configuring web applications, please wait...
     Configuring web applications, please wait...
     Configuring web applications, please wait...
@@ -76,14 +77,34 @@
     Configuring web applications, please wait...
     Configuring web applications, please wait...
     Configuring web applications, please wait...
-
-    Web application is online: http://87.254.4.135
-
-    Choose option:
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+    Configuring web applications, please wait...
+ 
+    Web application is online: http://87.254.4.129
+ 
+    Choose option: 
     1) create
     2) leave
     Choose option: 2
     Bye
+ 
 
 # Notes:
 Script "build.sh" comes with "userdata.sh" and "Konrad-openrc.sh" files. Please make sure all the files are all together in the same directory.
