@@ -14,7 +14,7 @@ GROUP="default"
 NIC="net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b"
 source Konrad-openrc.sh
 
-if [ ! -e "$USERDATA" -a ! -e "CREDS" ] ; then
+if [ ! -e "$USERDATA" -a ! -e "$CREDS" ] ; then
   echo "Missing files! Make sure that "Konrad-openrc.sh" and "userdata.sh" exist in this directory"
   exit 1
 fi
