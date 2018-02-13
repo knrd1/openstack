@@ -72,7 +72,9 @@ select menu in create leave; do
         echo " "
 
         while ! ping -c1 "$IP" &>/dev/null; do
-          read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: " IP
+          read -p "Creating virtual machine... \
+          Please check VM status and associate floating IP via GUI, \
+          Then paste IP here and press ENTER to continue: " IP
         done
 
         echo " "
