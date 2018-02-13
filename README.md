@@ -89,12 +89,12 @@
 Script "build.sh" comes with "userdata.sh" and "Konrad-openrc.sh" files. Please make sure all the files are all together in the same directory.
 
 # Bugs:
-When you manually assign floating IP via GUI and paste it too fast to the script (while STATE is "BUILDING"), you may need to repeat it - so wait for Vm state "RUNNING" and paste IP again to the script.
+When you manually assign floating IP via GUI and paste it too fast to the script (while STATE is "BUILDING"), you may need to repeat it - so wait for VM state "RUNNING" and paste IP again to the script.
 
 # To do: 
 1) Add features:
-  a) Number of VMs
-  b) Environment
+ a) Number of VMs,
+ b) Environment.
 
 # Cannot associate floating IP via CLi, works fine in GUI
 
