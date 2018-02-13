@@ -84,11 +84,19 @@
     2) leave
     Choose option: 2
     Bye
-    
-# OpenStack CLI notes:
-    openstack server create --flavor m1.small --image "Ubuntu 16.04 LTS" --key-name konrad --security-group default --nic net-id=0a8d12af-e534-421a-8ad4-e326dc14dd9b blog
 
-# To do: Cannot associate floating IP via CLi, works fine in GUI
+# Notes:
+Script "build.sh" comes with "userdata.sh" and "Konrad-openrc.sh" files. Please make sure all the files are all together in the same directory.
+
+# Bugs:
+When you manually assign floating IP via GUI and paste it too fast to the script (while STATE is "BUILDING"), you may need to repeat it - so wait for Vm state "RUNNING" and paste IP again to the script.
+
+# To do: 
+1) Add features:
+  a) Number of VMs
+  b) Environment
+
+# Cannot associate floating IP via CLi, works fine in GUI
 
     root@test:~# openstack server list
     +--------------------------------------+------+--------+--------------------------------+------------------+----------+
