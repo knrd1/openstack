@@ -54,6 +54,9 @@ select menu in create leave; do
         --nic "$NIC" \
         --user-data "$USERDATA" \
         "$VM"
+          if [ ! "$?" = 0 ]; then
+            exit 1
+          fi
         echo " "
         while ! ping -c1 "$IP" &>/dev/null; do
           read -p "Virtual Machine has been created, please associate floating IP in GUI, paste IP here and press ENTER to continue: " IP
