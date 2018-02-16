@@ -144,3 +144,37 @@ When you manually assign floating IP via GUI and paste it too fast to the script
     | 1d9c0006-0412-4185-9888-c56aafb7f492 | test | ACTIVE | Default=10.0.0.4, 87.254.4.129 | Ubuntu 16.04 LTS | m1.small |
     +--------------------------------------+------+--------+--------------------------------+------------------+----------+
     root@test:~#
+
+# FIXED:
+```
+root@openstackcli:~# openstack floating ip create 78c0dc1f-a6ae-4073-9764-db02c2970db3
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | None                                 |
+| description         | None                                 |
+| fixed_ip_address    | None                                 |
+| floating_ip_address | 87.254.4.147                         |
+| floating_network_id | 78c0dc1f-a6ae-4073-9764-db02c2970db3 |
+| id                  | 9f6f55b1-c20e-4490-9e50-ea4304febc94 |
+| name                | 87.254.4.147                         |
+| port_id             | None                                 |
+| project_id          | 32fb1de794e24ae6a6ace6059707d66a     |
+| qos_policy_id       | None                                 |
+| revision_number     | None                                 |
+| router_id           | None                                 |
+| status              | ACTIVE                               |
+| subnet_id           | None                                 |
+| updated_at          | None                                 |
++---------------------+--------------------------------------+
+root@openstackcli:~# openstack floating ip set --port 6b33aa4d-f688-4759-9d57-edc243012a9c 87.254.4.147
+root@openstackcli:~# openstack server list
++--------------------------------------+--------------+--------+--------------------------------------------------------------------------+------------------+-----------+
+| ID                                   | Name         | Status | Networks                                                                 | Image            | Flavor    |
++--------------------------------------+--------------+--------+--------------------------------------------------------------------------+------------------+-----------+
+| e790b7d7-777d-464c-b5ad-4ae6e55c15fe | konrad       | ACTIVE | Default=10.0.0.5                                                         | Ubuntu 16.04 LTS | m1.small  |
+| 2c6d729c-97ba-4c23-9282-126608a65387 | hello_world  | ACTIVE | Default=10.0.0.4, 87.254.4.144, 87.254.4.131, 87.254.4.129               | Ubuntu 16.04 LTS | m1.medium |
+| 52bdf300-3079-471c-9522-427d7efaff51 | openstackcli | ACTIVE | Default=10.0.0.3, 87.254.4.147, 87.254.4.146, 87.254.4.145, 87.254.4.128 | Ubuntu 16.04 LTS | m1.small  |
++--------------------------------------+--------------+--------+--------------------------------------------------------------------------+------------------+-----------+
+root@openstackcli:~#
+```
